@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Nids!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      overflow-x: hidden;
+      color: #333;
+    }
+    .container {
+      text-align: center;
+      padding: 80px 20px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: slideIn 1s ease-out forwards;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #555;
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease-in;
+    }
+    .balloons {
+      position: relative;
+      height: 200px;
+    }
+    .balloon {
+      position: absolute;
+      bottom: 0;
+      width: 60px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .balloon:nth-child(1) {
+      left: 10%; animation-delay: 0s; }
+    .balloon:nth-child(2) {
+      left: 30%; animation-delay: 1s; }
+    .balloon:nth-child(3) {
+      left: 50%; animation-delay: 2s; }
+    .balloon:nth-child(4) {
+      left: 70%; animation-delay: 3s; }
+    .balloon:nth-child(5) {
+      left: 90%; animation-delay: 4s; }.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1.5s ease-out;
+}
+.wish {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.btn-refresh {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: none;
+  background: #5c6bc0;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+.btn-refresh:hover {
+  background: #3f51b5;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Birthday, Nids!</h1>
+    <h2>Wishing you laughter, joy & all things bright</h2><div class="balloons">
+  <img src="https://i.imgur.com/j3rJYzX.png" class="balloon" alt="balloon">
+  <img src="https://i.imgur.com/WjT7x8Q.png" class="balloon" alt="balloon">
+  <img src="https://i.imgur.com/j3rJYzX.png" class="balloon" alt="balloon">
+  <img src="https://i.imgur.com/WjT7x8Q.png" class="balloon" alt="balloon">
+  <img src="https://i.imgur.com/j3rJYzX.png" class="balloon" alt="balloon">
+</div>
+
+<div class="card">
+  <p class="wish">Hey Nids! Just wanted to drop in and say HAPPY BIRTHDAY in a fun way. May this year bring you fresh vibes, good times, and everything you love. Keep being the strong, sweet, flying-free bird you are. Have a blast!</p>
+  <button class="btn-refresh" onclick="location.reload()">Click for surprise again</button>
+</div>
+
+  </div>
+</body>
+</html>
