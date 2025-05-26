@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise Celebration!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 80px;
+      animation: popIn 1s ease-out forwards;
+    }
+
+    .emoji-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .gift-box {
+      margin: 50px auto;
+      width: 120px;
+      height: 120px;
+      background: url('https://i.imgur.com/zh5Qf8Z.png') no-repeat center/cover;
+      cursor: pointer;
+      transition: transform 0.5s;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.1);
+    }
+
+    .popup {
+      display: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 30px;
+      border-radius: 20px;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 300px;
+      z-index: 10;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -30%); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Your Surprise, Nids!</h1>
+
+  <div class="emoji-container" id="emojis"></div>
+
+  <div class="gift-box" onclick="revealSurprise()"></div>
+
+  <div class="popup" id="popupMessage">
+    <h2>You’re amazing!</h2>
+    <p>This moment is all about YOU — your awesomeness, your spark, and your smile. Keep shining, always!</p>
+  </div>
+
+  <audio id="cheerSound" src="https://www.soundjay.com/human/sounds/applause-8.mp3"></audio>
+
+  <script>
+    // Floating emojis
+    const emojis = ['✨', '❤️', '🌟', '🎈', '🎉', '💫', '🌈'];
+    const emojiContainer = document.getElementById('emojis');
+
+    function createEmoji() {
+      const emoji = document.createElement('div');
+      emoji.classList.add('emoji');
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      emojiContainer.appendChild(emoji);
+
+      setTimeout(() => emoji.remove(), 6000);
+    }
+
+    setInterval(createEmoji, 300);
+
+    // Gift box interaction
+    function revealSurprise() {
+      document.getElementById('popupMessage').style.display = 'block';
+      document.getElementById('cheerSound').play();
+    }
+  </script>
+</body>
+</html>
