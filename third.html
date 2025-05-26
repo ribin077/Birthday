@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final Surprise!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffd3a5, #fd6585);
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 60px;
+    }
+
+    .card {
+      width: 250px;
+      height: 180px;
+      margin: 50px auto;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-front {
+      background: #fff;
+      color: #333;
+    }
+
+    .card-back {
+      background: #ff6f91;
+      color: #fff;
+      transform: rotateY(180deg);
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-family: 'Pacifico', cursive;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .music-btn:hover {
+      background: #fff;
+    }
+
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff;
+      color: #fd6585;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: 'Pacifico', cursive;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #ffe1ec;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 1.5rem;
+      color: #fff;
+      pointer-events: none;
+      animation: floatHeart 1s ease-out forwards;
+    }
+
+    @keyframes floatHeart {
+      to {
+        transform: translateY(-100px) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>One Last Surprise!</h1>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Tap to Flip</h2>
+        <p>There's one more message!</p>
+      </div>
+      <div class="card-back">
+        <h2>You're Incredible!</h2>
+        <p>Keep being awesome and glowing like always!</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="music-btn" onclick="toggleMusic()">Toggle Music</button>
+  <button class="back-btn" onclick="location.href='second.html'">Back</button>
+
+  <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" loop autoplay></audio>
+
+  <script>
+    // Heart trail
+    document.addEventListener('mousemove', function(e) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = '❤️';
+      heart.style.left = e.pageX + 'px';
+      heart.style.top = e.pageY + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    });
+
+    // Toggle music
+    const music = document.getElementById("bgMusic");
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+</body>
+</html>
